@@ -1,0 +1,16 @@
+.root {
+	-fx-background-color : #121212;
+}
+
+.button {
+	-fx-background-color: transparent;
+	-fx-graphic: url('images/find_icon.png');
+}
+
+.button:hover {
+	-fx-background-color: #292929;
+}
+
+#statusText {
+    -fx-fill: white;
+}
