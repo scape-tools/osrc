@@ -7,10 +7,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-
 <StackPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.softgate.controller.Controller">
    <children>
-      <Button fx:id="requestBtn" mnemonicParsing="false" onAction="#requestRevision" text="Request Version" textFill="WHITE">
+      <Button fx:id="requestBtn" mnemonicParsing="false" onAction="#requestRevision" text="Request Revision" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
