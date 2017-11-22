@@ -1,8 +1,12 @@
 package com.softgate.controller;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import com.softgate.App;
 import com.softgate.net.CacheRequester;
 
 import javafx.animation.PauseTransition;
@@ -38,7 +42,7 @@ public class Controller implements Initializable {
 				
 				updateMessage("Connecting...");
 				
-		        requester.connect("oldschool" + 1 + ".runescape.com", 135);
+		        requester.connect("oldschool" + 1 + ".runescape.com", App.version);
 
 		        while (requester.getState() != CacheRequester.State.CONNECTED) {
 		        	
@@ -48,14 +52,19 @@ public class Controller implements Initializable {
 		        	
 		            requester.process();
 		        }
-		        
+
+		        if (requester.getRevision() > App.version) {
+		        	App.version = requester.getRevision();
+		        	try(PrintWriter writer = new PrintWriter(new FileWriter(new File("./version.properties")))) {
+		        		writer.println(String.format("version=%d", requester.getRevision()));
+					}
+				}
+
 		        updateMessage(String.format("Success!\nRevision=%d", requester.getRevision()));
 				return true;
 			}
 			
 		});
-		
-
 
 	}
 	
