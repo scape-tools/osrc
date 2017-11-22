@@ -17,9 +17,9 @@ public final class App extends Application {
 	@Override
 	public void start(Stage stage) {		
 		try {
-			StackPane root = FXMLLoader.load(App.class.getResource("/com/softgate/Main.fxml"));
+			StackPane root = FXMLLoader.load(App.class.getResource("/Main.fxml"));
 			Scene scene = new Scene(root);
-			scene.getStylesheets().add(App.class.getResource("style.css").toExternalForm());
+			scene.getStylesheets().add(App.class.getResource("/style.css").toExternalForm());
 			stage.setScene(scene);
 			stage.setTitle("OSRS Revision Checker");
 			stage.setResizable(false);
